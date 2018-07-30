@@ -1,1 +1,14 @@
-.gitconfig
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[user]
+	name = Matt Patterson
+	email = matt.patterson94@gmail.com
+[core]
+	editor = //usr/local/bin/vim
+[alias]
+	amend = commit --amend
+	ci = commit .
+  cb = !git branch | grep -ve " master$" | grep -v " staging$" | xargs -n 1 git branch -D
+  latest = !git branch --sort=-committerdate | head -40
