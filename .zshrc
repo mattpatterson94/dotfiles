@@ -10,6 +10,7 @@ ZSH_THEME="robbyrussell"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias cde="cd ~/Code/envato"
 alias be="bundle exec"
 alias ber="bundle exec rails"
 alias rbt="be rake db:rollback RAILS_ENV=test"
@@ -20,9 +21,9 @@ alias gpum="git pull upstream master"
 alias dockerexec="sudo docker exec -i -t"
 alias dc="docker-compose"
 alias serve="php -S 127.0.0.1:8080"
-alias coppa="git status --porcelain | cut -c4- | grep '.rb' | xargs bundle exec rubocop"
+alias coppa="git status --porcelain | cut -c4- | grep -E '(\.rb)|(\.rake)' | xargs bundle exec rubocop"
 alias nano="vim"
-alias rb="be rubocop --auto-correct"
+alias 'sudo nano'='sudo vim'
 alias brew="HOMEBREW_NO_AUTO_UPDATE=1 brew"
 alias cm="cd ~/Code/Copirite/copimaker"
 alias portal="cd ~/Code/Copirite/portal"
@@ -31,6 +32,9 @@ alias huxley="cd ~/Code/Freelance/huxleyschoolofmakeup"
 # DISABLE_AUTO_UPDATE="true"
 alias oppyfinder="cd ~/Code/Projects/oppyfinder"
 alias copirite="cd ~/Code/Copirite"
+
+alias n-install='n $(< .node-version)'
+alias r-install='ruby-install ruby $(< .ruby-version)'
 # Uncomment to change how often before auto-updates occur? (in days)
 # export UPDATE_ZSH_DAYS=13
 
@@ -62,9 +66,6 @@ alias copirite="cd ~/Code/Copirite"
 plugins=(git z)
 
 source $ZSH/oh-my-zsh.sh
-
-source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
 
 # User configuration
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:$PATH"
@@ -102,9 +103,26 @@ function dc_clean() {
 
 export PATH="/usr/local/sbin:$PATH"
 
-alias craftman="/Users/mattpatterson/.craftman/bin/craftman"
 #PATH=/Users/mattpatterson/.Pokemon-Terminal:/Users/mattpatterson/.gem/ruby/2.3.1/bin:/Users/mattpatterson/.rubies/ruby-2.3.1/lib/ruby/gems/2.3.0/bin:/Users/mattpatterson/.rubies/ruby-2.3.1/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 PATH=/Users/mattpatterson/.Pokemon-Terminal:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
-chruby ruby 2.4.2
+# Manage multiple Java versions
+export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
+export JAVA_10_HOME=$(/usr/libexec/java_home -v10)
+alias java8='export JAVA_HOME=$JAVA_8_HOME'
+alias java10='export JAVA_HOME=$JAVA_10_HOME'
+ # Set Java Version
+export JAVA_HOME=$JAVA_8_HOME
+export PATH="$JAVA_HOME/bin:$PATH"
+
+export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
+
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+source /usr/local/opt/chruby/share/chruby/auto.sh
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
+export PATH="/usr/local/opt/erlang@19/bin:$PATH"
+export PATH="$HOME/.exenv/bin:$PATH"
+if which exenv > /dev/null;
+  then eval "$(exenv init -)";
+fi
+
