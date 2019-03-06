@@ -1,8 +1,6 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-let g:rspec_command = "!clear && bundle exec rspec {spec}"
-
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -49,6 +47,7 @@ Plugin 'vim-scripts/Rename2'
 Plugin 'tpope/vim-endwise'
 Plugin 'wesQ3/vim-windowswap'
 Plugin 'stefanoverna/vim-i18n'
+Plugin 'christoomey/vim-system-copy'
 
 " Languages
 Plugin 'kchmck/vim-coffee-script'
