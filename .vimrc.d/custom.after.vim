@@ -1,13 +1,19 @@
 set noswapfile
 
-set background=dark
+" set background=dark
 let g:solarized_termcolors = 256
 let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
 set rnu
 set clipboard=unnamed
-let &colorcolumn=join(range(81,999),",")
+let colorcolumn=join(range(81,999),",")
 colorscheme solarized
+
+let g:rspec_command = "!clear && bundle exec rspec {spec}"
+" let g:airline_solarized_bg='dark'
+" let g:airline_theme='bubblegum'
+
+
 set shell=/bin/sh
 " set t_Co=256
 " color grb256
