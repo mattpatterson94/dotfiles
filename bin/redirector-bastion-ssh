@@ -1,0 +1,3 @@
+IP=`aws-vault exec envato-customer-production-cloudformation -- aws ec2 describe-instances --region=us-west-1 --filters "Name=tag:Name,Values=redirector-bastion" "Name=instance-state-name,Values=running" --query 'Reservations[0].Instances[0].PublicIpAddress' --region us-east-1 --output text`
+
+ssh -i ${HOME}/.ssh/aws/redirector_ssh_access_prod_us-east-1.pem ubuntu@${IP}

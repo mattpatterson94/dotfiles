@@ -32,7 +32,13 @@ ZSH_THEME="susi"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git z)
+plugins=(git z zsh-completions)
+
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi
+
+autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
 
@@ -40,10 +46,13 @@ source /usr/local/opt/chruby/share/chruby/chruby.sh
 source /usr/local/opt/chruby/share/chruby/auto.sh
 
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
-if which exenv > /dev/null;
-  then eval "$(exenv init -)";
-fi
 
 HEROKU_AC_ZSH_SETUP_PATH=/Users/mattpatterson/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
 
 eval "$(direnv hook zsh)"
+
+export ASDF_DIR=$(brew --prefix asdf)
+
+. $ASDF_DIR/asdf.sh
+
+. $ASDF_DIR/etc/bash_completion.d/asdf.bash

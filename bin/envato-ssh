@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+if [ $# -gt 0 ]; then
+    echo "Attempting to log into an envato.com wordpress instance in $1..."
+else
+    echo "Please specify environment (production|development)"
+    exit 1
+fi
+
+IP=`aws-vault exec envato-customer-"$1"-read-only -- aws ec2 describe-instances --region=us-east-1 --filters "Name=tag:Name,Values=envatocom-wordpress" "Name=instance-state-name,Values=running" --query 'Reservations[0].Instances[0].PrivateIpAddress' --output text`
+
+ssh -J envato_bastion ubuntu@${IP}
