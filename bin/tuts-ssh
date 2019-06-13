@@ -5,8 +5,6 @@ else
     exit 1
 fi
 
-ssh-add ~/.ssh/aws/tuts-deploy.pem
-
 IP=`aws-vault exec tuts-production-read-only -- aws ec2 describe-instances --region=us-west-1 --filters "Name=tag:Name,Values=$1" "Name=instance-state-name,Values=running" --query 'Reservations[0].Instances[0].PrivateIpAddress' --output text`
 
 ssh -J tuts_bastion app@${IP}
