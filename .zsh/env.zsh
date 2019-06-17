@@ -1,6 +1,3 @@
-# Uncomment to change how often before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=13
-
 export EDITOR='vim'
 
 export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
