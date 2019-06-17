@@ -1,61 +1,14 @@
-# If not running interactively, don't do anything
-[[ -o interactive ]] || return
+# Path to your oh-my-zsh installation.
+export ZSH="/usr/local/opt/zplug/repos/robbyrussell/oh-my-zsh"
 
-# https://medium.com/@dannysmith/little-thing-2-speeding-up-zsh-f1860390f92 
-autoload -Uz compinit 
-for dump in ~/.zcompdump(N.mh+24); do
-  compinit
-done
-compinit -C
+# Load Theme
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME=""
 
-# Uncomment following line if you want to  shown in the command execution time stamp 
-# in the history command output. The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|
-# yyyy-mm-dd
-HIST_STAMPS="mm/dd/yyyy"
-
-# History
-HISTSIZE=90000
-SAVEHIST=90000
-HISTFILE=~/.zsh_history
-
-# lscolors
-autoload -U colors && colors
-export LSCOLORS="Gxfxcxdxbxegedxbagxcad"
-export LS_COLORS="di=1;36:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=0;41:sg=30;46:tw=0;42:ow=30;43"
-export TIME_STYLE="+%y%m%d"
-
-# History search set cursor to end of line
-autoload -U up-line-or-beginning-search
-autoload -U down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-bindkey "^[[A" up-line-or-beginning-search # Up
-bindkey "^[[B" down-line-or-beginning-search # Down
+# Update automatically
+DISABLE_UPDATE_PROMPT="true"
 
 # Styles
-## ls colours
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-## Tab case-insensitive matching
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 ## Ssh Agent autoload identities
 zstyle :omz:plugins:ssh-agent identities id_rsa id_rsa_envato
-## Tab through ls menu
-zstyle ':completion:*' menu select
 
-# Mods
-zmodload zsh/complist
-
-# Completions
-## Brew
-if type brew &>/dev/null; then
-  # FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-fi
-
-# Keys
-## Shift-tab through selections
-bindkey -M menuselect '^[[Z' reverse-menu-complete
-## Fn + Delete -> Delete Character
-bindkey "\e[3~" delete-char
-# When pressing up+down cursor goes to end of line
-bindkey "^[[5~" history-beginning-search-backward
-bindkey "^[[6~" history-beginning-search-forward
