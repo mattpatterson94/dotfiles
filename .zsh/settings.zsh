@@ -1,8 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/usr/local/opt/zplug/repos/robbyrussell/oh-my-zsh"
 
-# Load Theme
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+# Ignore zsh theme as using Pure https://github.com/sindresorhus/pure 
 ZSH_THEME=""
 
 # Update automatically
