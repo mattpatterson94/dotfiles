@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ $# -eq 2 ]; then
+    echo "Attempting to find ip for \"$1\""
+else
+    echo "Please specify ec2 Name label and region."
+    echo "eg. ec2-ip <name> <region>"
+    exit 1
+fi
+
+IP=$(aws ec2 describe-instances --region="$2" --filters "Name=tag:Name,Values=$1" "Name=instance-state-name,Values=running" --query 'Reservations[0].Instances[0].PrivateIpAddress' --output text)
+
+echo "$IP"
