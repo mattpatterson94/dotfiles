@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 if [ $# -eq 2 ]; then
     echo "Attempting to find ip for \"$1\""
 else
