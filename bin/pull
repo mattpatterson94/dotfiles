@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+url=$1
+prefix=":github_2: :pr-open:"
+title=$(gh pr view $url --json 'title' | jq -r '.title')
+
+echo "${prefix} *${title}* ${url}" | pbcopy
