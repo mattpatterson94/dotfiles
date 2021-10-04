@@ -1,9 +1,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/usr/local/opt/zplug/repos/robbyrussell/oh-my-zsh"
 
-# Ignore zsh theme as using Pure https://github.com/sindresorhus/pure 
-ZSH_THEME="avit"
-
+#ZSH_THEME="avit"
+ZSH_THEME=""
 # Update automatically
 DISABLE_UPDATE_PROMPT="true"
 

@@ -7,3 +7,7 @@ source ~/.zsh/aliases.zsh
 source ~/.zsh/secrets.zsh
 source ~/.zsh/path.zsh
 #zprof # run zprof
+
+
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
