@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/mattpatterson/.aws'
-let g:netrw_dirhist_2='/Users/mattpatterson/.asdf'
-let g:netrw_dirhist_3='/Users/mattpatterson/Code/projects/qms/lib/qms'
-let g:netrw_dirhist_4='/Users/mattpatterson/Code/envato/market-shopfront/scripts'
