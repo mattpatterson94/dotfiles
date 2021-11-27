@@ -65,6 +65,20 @@ for i in ${SYMLINK_FOLDERS[@]}; do
   fi
 done
 
+# Install Vundle
+echo "Installing Vundle..."
+
+if [[ -f "$HOME/.vim/bundle/Vundle.vim" ]]; then
+  echo "Vundle is already installed."
+else
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+fi
+
+echo "Running Vundle +PluginInstall +qall"
+vim +PluginInstall +qall
+
+
+
 # Docker Buildx
 echo "### 6. Installing Docker Buildx"
 
@@ -75,6 +89,8 @@ if [[ `uname -m` == 'arm64' ]]; then
 else
 	BUILDX_RELEASE_SUFFIX="amd64"
 fi
+
+mkdir -p "$HOME/.docker/cli-plugins"
 
 if [[ -f "$HOME/.docker/cli-plugins/docker-buildx" ]]; then
   echo "Buildx is already installed. Skipping."
