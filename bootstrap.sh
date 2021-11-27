@@ -10,7 +10,7 @@ echo "### 1. Install Homebrew"
 if type brew >/dev/null 2>&1; then
 	echo "Homebrew is already installed ..."
 else
-	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 # Brew Install
@@ -20,13 +20,13 @@ skip_brew_install=${SKIP_BREW_INSTALL:-}
 if [[ "$skip_brew_install" != "" ]]; then
 	echo "Skipping Brew Install"
 else
-	brew bundle --file=$CWD/Brewfile
+	HOMEBREW_NO_UPGRADE=1 brew bundle --file=$CWD/Brewfile
 fi
 
 # Install Oh-My-Zsh
 echo "### 3. Install Oh-My-Zsh"
 
-if [[ -f "/usr/local/opt/zplug/repos/robbyrussell/oh-my-zsh/lib/cli.zsh" ]]; then
+if [[ -d "$HOME/.oh-my-zsh" ]]; then
 	echo "Oh-My-Zsh is already installed ..."
 else
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -66,12 +66,12 @@ for i in ${SYMLINK_FOLDERS[@]}; do
 done
 
 # Install Vundle
-echo "Installing Vundle..."
+echo "### 6. Installing Vundle..."
 
-if [[ -f "$HOME/.vim/bundle/Vundle.vim" ]]; then
+if [[ -d "$CWD/.vim/bundle/Vundle.vim" ]]; then
   echo "Vundle is already installed."
 else
-  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  git clone https://github.com/VundleVim/Vundle.vim.git $CWD/.vim/bundle/Vundle.vim
 fi
 
 echo "Running Vundle +PluginInstall +qall"
@@ -80,7 +80,7 @@ vim +PluginInstall +qall
 
 
 # Docker Buildx
-echo "### 6. Installing Docker Buildx"
+echo "### 7. Installing Docker Buildx"
 
 BUILDX_RELEASE_PREFIX="https://github.com/docker/buildx/releases/download/v0.7.1/buildx-v0.7.1.darwin-"
 
@@ -96,9 +96,7 @@ if [[ -f "$HOME/.docker/cli-plugins/docker-buildx" ]]; then
   echo "Buildx is already installed. Skipping."
 else
 	wget "${BUILDX_RELEASE_PREFIX}${BUILDX_RELEASE_SUFFIX}" -O ~/.docker/cli-plugins/docker-buildx 
-	chmod +x ~/.docker/cli-plugions/docker-buildx
+	chmod +x ~/.docker/cli-plugins/docker-buildx
 fi
 
-
-
-
+echo "DONE!"
