@@ -45,6 +45,10 @@ if [[ $installed_plugins != *"nodejs"* ]]; then
   asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 fi
 
+if [[ $installed_plugins != *"yarn"* ]]; then
+  asdf plugin add yarn
+fi
+
 if [[ $installed_plugins != *"terraform"* ]]; then
   asdf plugin-add terraform https://github.com/asdf-community/asdf-hashicorp.git
 fi

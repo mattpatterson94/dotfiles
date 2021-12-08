@@ -12,3 +12,5 @@ export ASDF_HOME=$(brew --prefix asdf)
 eval "$(direnv hook zsh)"
 
 [[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
+
+complete -C '/opt/homebrew/bin/aws_completer' aws
