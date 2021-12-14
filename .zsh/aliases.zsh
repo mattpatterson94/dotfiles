@@ -14,7 +14,7 @@ alias perf="curl -w \"@$HOME/.dotfiles/curl-format.txt\" -o /dev/null -s "
 alias subl='open -a "Sublime Text"'
 alias colima-start="colima start --mount $HOME/Code:w"
 alias docker-up='docker-compose -f ~/Code/docker/docker-compose.yml up -d'
-alias docker-down='docker-compose -f ~/Code/docker/docker-compose.yml down' 
+alias docker-down='docker-compose -f ~/Code/docker/docker-compose.yml down'
 
 function erase_history { local HISTSIZE=0; }
 
