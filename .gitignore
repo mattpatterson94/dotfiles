@@ -1,3 +1,4 @@
 .ssh/config
 .DS_Store
 .vim/bundle
+.zsh/secrets.zsh
