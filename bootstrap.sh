@@ -82,25 +82,4 @@ echo "Running Vundle +PluginInstall +qall"
 vim +PluginInstall +qall
 
 
-
-# Docker Buildx
-echo "### 7. Installing Docker Buildx"
-
-BUILDX_RELEASE_PREFIX="https://github.com/docker/buildx/releases/download/v0.7.1/buildx-v0.7.1.darwin-"
-
-if [[ `uname -m` == 'arm64' ]]; then
-  BUILDX_RELEASE_SUFFIX="arm64"
-else
-	BUILDX_RELEASE_SUFFIX="amd64"
-fi
-
-mkdir -p "$HOME/.docker/cli-plugins"
-
-if [[ -f "$HOME/.docker/cli-plugins/docker-buildx" ]]; then
-  echo "Buildx is already installed. Skipping."
-else
-	wget "${BUILDX_RELEASE_PREFIX}${BUILDX_RELEASE_SUFFIX}" -O ~/.docker/cli-plugins/docker-buildx 
-	chmod +x ~/.docker/cli-plugins/docker-buildx
-fi
-
 echo "DONE!"
