@@ -15,3 +15,5 @@ complete -C '/opt/homebrew/bin/aws_completer' aws
 
 # export JAVA_HOME="$(/usr/libexec/java_home)"
 # export ANDROID_SDK_ROOT="$(brew --prefix)/share/android-commandlinetools"
+
+if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then . "$HOME/.nix-profile/etc/profile.d/nix.sh"; fi # added by Nix installer

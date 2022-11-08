@@ -1,7 +1,8 @@
-alias cde="cd ~/Code/envato"
+alias cdw="cd ~/Code/work"
 alias cdp="cd ~/Code/projects"
 alias cdf="cd ~/Code/freelance"
 alias cdd="cd ~/Code/docker"
+alias canva="cd ~/Code/work/canva"
 alias be="bundle exec"
 alias ber="bundle exec rails"
 alias ggfp="git push --force-with-lease origin head"
@@ -18,6 +19,7 @@ alias docker-down='docker-compose -f ~/Code/docker/docker-compose.yml down'
 alias fix-docker-sock="sudo ln -s ~/.colima/docker.sock /var/run/docker.sock"
 alias ej='/opt/homebrew/opt/ejson/bin/ejson'
 alias python='/opt/homebrew/bin/python3'
+alias cat="bat"
 
 function erase_history { local HISTSIZE=0; }
 
