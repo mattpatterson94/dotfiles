@@ -2,7 +2,7 @@
   "entries": {
     "tap": {
       "aws/tap": {
-        "revision": "c664e2866b5a9c561262ce7722fa6dfcb5fd409a"
+        "revision": "da772b498ab48d6d6ed4fbebcacca3addf9826dc"
       },
       "callahanrts/dbmgr": {
         "revision": "2a881030b21ae856f0e7451ee2c5b6034c1cbb96"
@@ -20,13 +20,13 @@
         "revision": "48c4831a4edd0b81f369f9710e470794c637d667"
       },
       "homebrew/cask": {
-        "revision": "a68f30ecff21df523578b14a41ad4c72dc756a16"
+        "revision": "11282d8a5e0988a0ae09303344a5edfcfc505c0b"
       },
       "homebrew/cask-versions": {
         "revision": "2171c09b2b2ee1f08866e36bb19764308558214f"
       },
       "homebrew/core": {
-        "revision": "99fc441d4a2c26f92f4104b827d7321c258976f9"
+        "revision": "61fa7ae79bb6e019a18d37fadceaa673b3823800"
       },
       "homebrew/services": {
         "revision": "b8025961f8175f852f789624624915595782b5d8"
@@ -53,7 +53,7 @@
         "revision": "b18fee5906adcc40dca38bc4c42dd7bd98c63ef2"
       },
       "shopify/shopify": {
-        "revision": "628fad879f60caf737c47477a11c331205fd638e"
+        "revision": "06e603533d24869fcf534c9591df42e3f6449c22"
       }
     },
     "brew": {
@@ -4235,6 +4235,12 @@
         "options": {
           "full_name": "zulu11"
         }
+      },
+      "plex": {
+        "version": "1.56.2.3345,2a4c0924",
+        "options": {
+          "full_name": "plex"
+        }
       }
     }
   },
@@ -4243,7 +4249,7 @@
       "monterey": {
         "HOMEBREW_VERSION": "3.6.9",
         "HOMEBREW_PREFIX": "/opt/homebrew",
-        "Homebrew/homebrew-core": "99fc441d4a2c26f92f4104b827d7321c258976f9",
+        "Homebrew/homebrew-core": "61fa7ae79bb6e019a18d37fadceaa673b3823800",
         "CLT": "14.1.0.0.1.1666437224",
         "Xcode": "14.1",
         "macOS": "12.6.1"
