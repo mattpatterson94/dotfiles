@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-CWD="$(dirname "$0")"
+CWD="$(realpath $(dirname "$0"))"
 
 # Install Homebrew
 echo "### 1. Install Homebrew"
@@ -35,7 +35,7 @@ fi
 # ASDF Plugins
 echo "### 4. Install ASDF Plugins"
 
-installed_plugins=$(asdf plugin list)
+installed_plugins=$(asdf plugin list 2>/dev/null || true)
 
 if [[ $installed_plugins != *"ruby"* ]]; then
   asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
@@ -57,6 +57,8 @@ fi
 echo "### 5. Configure Symlinks"
 
 SYMLINK_FOLDERS=(.vim .vimrc .vimrc.d .ssh/config .zsh .zshrc)
+
+rm -f "$HOME/.zshrc"
 
 for i in ${SYMLINK_FOLDERS[@]}; do
 	src_dir="${CWD}/${i}"
@@ -80,6 +82,25 @@ fi
 
 echo "Running Vundle +PluginInstall +qall"
 vim +PluginInstall +qall
+
+# Install zsh plugins
+echo "### 7. Installing zsh plugins..."
+
+ZSH_PLUGINS=("blimmer/zsh-aws-vault" "chrissicool/zsh-256color" "zsh-users/zsh-syntax-highlighting")
+
+zsh_plugins_location=".oh-my-zsh/custom/plugins"
+
+mkdir -p "$HOME/${zsh_plugins_location}"
+
+for i in ${ZSH_PLUGINS[@]}; do
+  dest_dir="$zsh_plugins_location/"$(basename ${i})""
+
+  if [ -d "${dest_dir}" ] || [ -L "${dest_dir}" ] || [ -f "${dest_dir}" ]; then
+		echo "${dest_dir} exists. Skipping..."
+	else
+    git clone "git@github.com:${i}" "$dest_dir"
+  fi
+done
 
 
 echo "DONE!"
