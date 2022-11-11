@@ -7,7 +7,7 @@ source ~/.zsh/aliases.zsh
 source ~/.zsh/path.zsh
 #zprof # run zprof
 
-if [[ -f "~/.zsh/secrets.zsh" ]]
-then
+if test -f "$HOME/.zsh/secrets.zsh"; then
   source ~/.zsh/secrets.zsh
 fi
+if [ -e /Users/mattpatterson/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/mattpatterson/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
