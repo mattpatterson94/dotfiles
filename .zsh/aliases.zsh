@@ -10,13 +10,21 @@ alias dc="docker-compose"
 alias ssh-remove='ssh-keygen -R'
 alias python='/opt/homebrew/bin/python3'
 alias cat="bat"
+alias ssh="TERM=xterm-256color ssh"
 alias devbox="ssh coder.mattpatterson"
+alias zj="zellij"
 
 function erase_history { local HISTSIZE=0; }
 
 function cleanup {
   docker system prune -a --volumes -f
   xcrun simctl delete unavailable;
+}
+
+function commit {
+  gaa
+  gc -m "$1"
+  ggp
 }
 
 function pull {
