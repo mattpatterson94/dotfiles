@@ -34,3 +34,15 @@ function pull {
 
   echo "${prefix} *${title}* ${url}" | pbcopy
 }
+
+function fin {
+  yarn fin $@;
+
+  retVal=$?
+  val="SUCCESS"
+  if [ $retVal -ne 0 ]; then
+    val="FAILED"
+  fi
+
+  terminal-notifier -title "Fin" -message $val
+}
