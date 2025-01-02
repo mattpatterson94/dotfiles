@@ -6,3 +6,5 @@ set relativenumber
 set clipboard+=unnamed
 " Map key chord `jk` to <Esc>.
 inoremap jk <Esc>
+" Syntax highlighting
+syntax on
