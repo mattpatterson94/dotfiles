@@ -7,7 +7,5 @@ source $ASDF_HOME/libexec/asdf.sh
 source $ASDF_HOME/etc/bash_completion.d/asdf.bash
 
 export PATH="$HOME/go/bin:$PATH"
-export PATH="$(brew --prefix ejson)/bin:$PATH"
-
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"

@@ -1,8 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-#ZSH_THEME="avit"
-ZSH_THEME=""
+ZSH_THEME="robbyrussell"
 # Update automatically
 DISABLE_UPDATE_PROMPT="true"
 
