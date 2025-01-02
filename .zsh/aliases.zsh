@@ -10,6 +10,7 @@ alias dc="docker-compose"
 alias ssh-remove='ssh-keygen -R'
 alias python='/opt/homebrew/bin/python3'
 alias cat="bat"
+alias devbox="ssh coder.mattpatterson"
 
 function erase_history { local HISTSIZE=0; }
 
