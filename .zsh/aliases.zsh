@@ -36,13 +36,21 @@ function pull {
 }
 
 function fin {
-  pnpm fin $@;
-
+  pnpm fin --reduceAnimations $@;
   retVal=$?
-  val="SUCCESS"
+
+  successMessage=":white_check_mark: Completed successfully!"
+  failedMessage=":x: Failed"
+
+  notificationMessage=$successMessage
+
+  # Notification Settings
+  notificationTitle="Canva CLI"
+  notificationSubtitle="Fin"
+
   if [ $retVal -ne 0 ]; then
-    val="FAILED"
+    notificationMessage=$failedMessage
   fi
 
-  terminal-notifier -title "Fin" -message $val
+  terminal-notifier -title $notificationTitle -subtitle $notificationSubtitle -message $notificationMessage -appIcon "https://avatar.canva.com/avatars/brands/270cc615-e5f9-4fac-86d4-9828a97a7064/200.png"
 }
