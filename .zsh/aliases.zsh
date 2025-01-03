@@ -36,7 +36,7 @@ function pull {
 }
 
 function fin {
-  yarn fin $@;
+  pnpm fin $@;
 
   retVal=$?
   val="SUCCESS"

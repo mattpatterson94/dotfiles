@@ -1,6 +1,7 @@
 let mapleader=" "
 let maplocalleader="\\"
-
+" Enable mouse usage eg. click to move cursor
+set mouse=a
 " Print line number
 set number
 " Relative line numbers
