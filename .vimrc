@@ -2,6 +2,16 @@ let mapleader=" "
 let maplocalleader="\\"
 " Enable mouse usage eg. click to move cursor
 set mouse=a
+" handle indentation automatically
+set autoindent
+" indent automatically based on filetype
+filetype plugin indent on
+" use spaces for indenting
+set expandtab
+" number of spaces when indenting with tab
+set tabstop=2
+" number of spaces when indenting with >>, <<
+set shiftwidth=2
 " Print line number
 set number
 " Relative line numbers

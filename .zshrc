@@ -11,3 +11,5 @@ if test -f "$HOME/.zsh/secrets.zsh"; then
   source ~/.zsh/secrets.zsh
 fi
 if [ -e /Users/mattpatterson/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/mattpatterson/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+
