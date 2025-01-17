@@ -13,6 +13,7 @@ alias cat="bat"
 alias ssh="TERM=xterm-256color ssh"
 alias devbox="ssh coder.mattpatterson"
 alias zj="zellij"
+alias green="git fetch origin green:green"
 
 function erase_history { local HISTSIZE=0; }
 
@@ -36,11 +37,11 @@ function pull {
 }
 
 function fin {
-  pnpm fin --reduceAnimations $@;
+  pnpm fin --compact --reduceAnimations $@;
   retVal=$?
 
-  successMessage=":white_check_mark: Completed successfully!"
-  failedMessage=":x: Failed"
+  successMessage="✅ Completed successfully!"
+  failedMessage="❌ Failed"
 
   notificationMessage=$successMessage
 
