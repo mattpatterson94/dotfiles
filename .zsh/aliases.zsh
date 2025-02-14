@@ -28,6 +28,13 @@ function commit {
   ggp
 }
 
+function amend {
+  gaa
+  git amend --no-edit
+  ggfp
+}
+
+
 function pull {
   url=$1
   prefix=":github_2: :pr-open:"
