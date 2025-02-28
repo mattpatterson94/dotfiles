@@ -35,7 +35,19 @@ syntax on
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 " keymaps
-nnoremap <c-s> :w<CR> " normal mode: save
-inoremap <c-s> <Esc>:w<CR>l " insert mode: escape to normal and save
-vnoremap <c-s> <Esc>:w<CR> " visual mode: escape to normal and save
+" normal mode: save
+nnoremap <c-s> :w<CR> 
+" insert mode: escape to normal and save
+inoremap <c-s> <Esc>:w<CR>l 
+" visual mode: escape to normal and save
+vnoremap <c-s> <Esc>:w<CR> 
 
+" Map rebase keys
+augroup my_git_rebase
+  autocmd!
+  autocmd FileType gitrebase nnoremap <buffer> <C-p> :Pick<cr>
+  autocmd FileType gitrebase nnoremap <buffer> <C-d> :Drop<cr>
+  autocmd FileType gitrebase nnoremap <buffer> <C-f> :Fixup<cr>
+  autocmd FileType gitrebase nnoremap <buffer> <C-r> :Reword<cr>
+  autocmd FileType gitrebase nnoremap <buffer> <C-e> :Edit<cr>
+augroup END
